@@ -609,6 +609,11 @@ KBUILD_LDFLAGS_MODULE :=
 KBUILD_LDFLAGS :=
 CLANG_FLAGS :=
 
+KBUILD_CFLAGS   +=   -DNT_PROJECT=\"$(NT_PROJECT)\"
+KBUILD_CPPFLAGS +=   -DNT_PROJECT=\"$(NT_PROJECT)\"
+CFLAGS_KERNEL   +=   -DNT_PROJECT=\"$(NT_PROJECT)\"
+CFLAGS_MODULE   +=   -DNT_PROJECT=\"$(NT_PROJECT)\"
+
 ifeq ($(KBUILD_CLIPPY),1)
 	RUSTC_OR_CLIPPY_QUIET := CLIPPY
 	RUSTC_OR_CLIPPY = $(CLIPPY_DRIVER)
@@ -1224,7 +1229,7 @@ export MODULES_NSDEPS := $(extmod_prefix)modules.nsdeps
 
 PHONY += headers
 
-ext-mod-dir := ../sm8650-modules
+ext-mod-dir := ../sm7635-modules
 ext-mod-dirs := \
  	$(ext-mod-dir)/qcom/opensource/audio-kernel \
  	$(ext-mod-dir)/qcom/opensource/dataipa/drivers/platform/msm \
